@@ -1,0 +1,676 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+}
+
+#site-root{
+    display: grid;
+    grid-template-rows: auto;
+    gap: 20px;
+    padding: 0 30px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.nav-container .navbar {
+    padding: 2rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9999;
+    width: 100%;
+    position: fixed;
+}
+.navbar .logo{
+    border-color: #0E345A;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 2px;
+    align-items: center;
+    display: flex;
+    min-width: 330px;
+}
+
+.logo .logo1{
+    background-color: #0E345A;
+    font-family: 'Poppins', serif;
+    font-weight: 800;
+    font-size: 32px;
+    color: white;
+    letter-spacing: 6px;
+    padding: 3px 9px;
+    text-shadow: 2px 7px 5px rgba(3, 0, 0, 0.544), 0px -4px 10px rgba(255, 255, 255, 0.368);
+}
+
+.logo .logo2{
+    font-family: 'Poppins', serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: #0E345A;
+    padding: 2px 9px;
+    text-shadow: 2px 7px 5px rgba(3, 0, 0, 0.132), 0px -4px 10px rgba(255, 255, 255, 0.619);
+}
+
+.navbar .navbar-item {
+    align-items: center;
+    width: auto;
+    justify-content: space-between;
+    margin-left: 500px;
+}
+
+
+#nn {
+    font-family: 'Poppins', serif;
+    padding: 40px;
+    font-size: 20px;
+    color: #0E345A;
+}
+
+.icons, #hh{
+    padding: 6.5px;
+    font-size: 36px;
+}
+
+.navbar .toggle_btn{
+    color: #0E345A;
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+    margin: 30px;
+}
+
+/* Responsive section */
+@media (max-width: 1680px) {
+    #nn, #search-box, .navbar-item, .icons, #hh, #urslogo, #coenglogo{
+        display: none;
+    }
+
+    .navbar .toggle_btn, .dropdown-menu{
+        display: block;
+    }
+}
+
+/* Add these styles for the dropdown menu */
+.dropdown-menu {
+    position: relative;
+    top: 1px; /* Adjust as needed */
+    right: auto; /* Adjust as needed */
+    background-color: #0E345A;
+    backdrop-filter: blur(15px);
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: none;
+    transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown-menu a {
+    font-family: 'Poppins', serif;
+    display: flex;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ffffff;
+    color: #0E345A;
+}
+
+.dropdown-menu.show {
+    display: block;
+    position: relative;
+}
+
+/* DARK MODE */
+
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+.dark-light:checked + label,
+.dark-light:not(:checked) + label {
+  position: relative;
+  z-index: 200;
+  display: flex;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  cursor: pointer;
+  transition: all 200ms linear;
+  box-shadow: 0 0 25px rgba(255, 235, 167, 0.45);
+}
+.dark-light:checked + label {
+  transform: rotate(360deg);
+}
+.dark-light:checked + label:after,
+.dark-light:not(:checked) + label:after {
+  position: absolute;
+  content: "";
+  top: 1px;
+  left: 1px;
+  overflow: hidden;
+  z-index: 2;
+  display: block;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  background-color: #102770;
+  background-image: url("https://assets.codepen.io/1462889/moon.svg");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 200ms linear;
+  opacity: 0;
+}
+.dark-light:checked + label:after {
+  opacity: 1;
+}
+.dark-light:checked + label:before,
+.dark-light:not(:checked) + label:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 1;
+  display: block;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  background-color: #48dbfb;
+  background-image: url("https://assets.codepen.io/1462889/sun.svg");
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 200ms linear;
+}
+.dark-light:checked + label:before { 
+  background-color: #000;
+}
+.light-back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #ffffff;
+  overflow: hidden;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 4%;
+  height: 100%;
+  width: 100%;
+  transition: all 200ms linear;
+  opacity: 0;
+}
+.dark-light:checked ~ .light-back {
+  opacity: 1;
+}
+
+/* Light mode styles */
+:not(.dark-mode) #site-root {
+    background-color: transparent; /* Light background color */
+    color: #ffffff; /* Dark text color */
+    /* Add any additional styles for light mode */
+}
+
+/* Example of overriding specific elements */
+:not(.dark-mode) .navbar{
+    background-color: #ffffff; /* Light navbar background color */
+}
+
+:not(.dark-mode) .navbar .logo2{
+    color: #0E345A;
+    background-color: transparent; /* Light navbar background color */
+}
+
+:not(.dark-mode) .navbar #nn:hover{
+    background-color: #0E345A;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 10px 40px;
+}
+
+:not(.dark-mode) #hh{
+    color: #0E345A;
+}
+
+:not(.dark-mode) #hh:hover{
+    color: #07deff;
+}
+
+:not(.dark-mode) .navbar a {
+    color: #ffffff; /* Dark navbar link text color */
+}
+
+/* Dark mode styles */
+.dark-mode, #site-root {
+    background-color: #333; /* Dark background color */
+    color: #ffffff; /* Light text color */
+    /* Add any additional styles for dark mode */
+}
+
+.dark-mode .navbar {
+    background-color: #272727; /* Dark navbar background color */
+}
+
+.dark-mode .navbar .logo2{
+    color: #ffffff;
+    background-color: transparent; /* Light navbar background color */
+}
+
+.dark-mode .navbar #nn{
+    color: #ffffff;
+}
+
+.dark-mode .navbar #nn:hover{
+    background-color: #ffffff;
+    color: #0E345A;
+    border-radius: 30px;
+    padding: 10px 40px;
+}
+
+.dark-mode #hh {
+    color: #ffffff;
+}
+
+.dark-mode #hh:hover{
+    color: #fddf32;
+}
+
+.dark-mode .navbar a {
+    color: #ffffff; /* Light navbar link text color */
+}
+
+/* Home Section designs */
+.home{
+    margin-top: 160px;
+    display: flex;
+    background: url("pics/bg.png") no-repeat center;
+    height: 70vh;   
+    min-height: 300px;
+    background-size: cover;
+    background-attachment: fixed;
+    align-items: center;
+}
+.home-section{
+    font-family: "Noto Serif Georgian", serif;
+    font-size: 4rem;
+    font-weight: 400;
+}
+
+.column1{
+    float: left;
+    width: 60%;
+    padding: 10px;
+}
+
+.column1 h1{
+    padding: 100px 50px;
+    align-items: center;
+    font-weight: 720;
+    text-shadow: 2px 7px 5px rgba(3, 0, 0, 0.422), 0px -4px 10px rgba(255, 255, 255, 0.312);
+    line-height: 7rem;
+    word-wrap: break-word; 
+}
+
+@media screen and (max-width: 1000px) {
+    .column1 h1 {
+        margin-top: -55px;
+        font-size: 45px; 
+        line-height: 3rem;/* Example: Reduce font size for smaller screens */
+        /* Add other styles as needed */
+    }
+}
+
+
+.column1 p{
+    justify-content: center;
+    margin-top: -120px;
+    font-size: 35px;
+    padding: 0 50px;
+    align-items: center;
+    font-weight: 500;
+    text-shadow: 2px 7px 5px rgba(3, 0, 0, 0.422), 0px -4px 10px rgba(255, 255, 255, 0.312);
+    line-height: 7rem;
+    word-wrap: break-word; 
+}
+
+@media screen and (max-width: 1000px) {
+    .column1 p {
+        font-size: 15px; 
+        line-height: 1rem;
+        margin-top: -90px;/* Example: Reduce font size for smaller screens */
+        /* Add other styles as needed */
+    }
+}
+
+
+.column2{
+    max-width: 100%;
+    justify-content: center;
+    display: flex;
+    width: 570px;
+}
+
+#urslogo {
+    max-width: 100%;
+    padding: 20px;
+    height: 500px;
+}
+
+#coenglogo{
+    max-width: 100%;
+    padding: 40px 0;
+    height: 500px;
+}
+
+@media screen and (max-width: 1000px) {
+    .column2{
+        justify-content: center;
+        align-content: center;
+        float: left;
+        width: 30%;
+        height: 120px;
+        padding: 20px;
+    }
+    
+    #urslogo, #coenglogo {
+        margin-top: 40px;
+        display: flex;
+        width: 200px;
+        height: 220px;
+        padding: 5px;
+    }
+}
+
+
+.blank{
+    width: 1845px;
+    height: 500px;
+}
+
+.blank .title-manu{
+    margin-top: 350px;
+    text-align: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.title-manu{
+    padding: 50px;
+    color: #0E345A;
+    font-size: 30px;
+    text-shadow: 2px 7px 5px rgba(3, 0, 0, 0.544), 0px -4px 10px rgba(255, 255, 255, 0.368);
+}
+
+.manuscripts {
+    width: 100%;
+    display: grid;
+    padding: 40px;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr); /* Create three columns */
+}
+  
+.manu {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    margin-left: 60px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Create two columns within each manuscript */
+    gap: 90px; /* Add gap between grid items within each manuscript */
+    padding: 20px;
+
+}
+  
+.book {
+    justify-content: space-between;
+    width: 265px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.352);
+    box-shadow: 0 0 80px 2px rgba(0, 0, 0, 0.685);
+    backdrop-filter: blur(15px);
+    padding: 20px; /* Add padding for spacing */
+    transition: transform .2s; /* Animation */
+    width: 270px;
+    height: 350px;
+    margin: 0 auto;
+}
+
+.book:hover {
+    transform: scale(1.2); 
+}
+  
+.book img {
+    width: 100%; /* Make the image fill its container */
+    max-width: 100%; /* Ensure the image doesn't exceed its container */
+    height: 200px;
+}
+
+.book .details{
+    color: #ffffff;
+}
+
+.book .details h2{
+    font-size: 25px;
+    font-style: 30px;
+    text-shadow: 2px 7px 5px rgba(3, 0, 0, 0.544), 0px -4px 10px rgba(255, 255, 255, 0.215);
+}
+
+.book .details p{
+    font-family: 'Poppins', serif;
+    font-size: 15px;
+    font-weight: 5px;
+}
+.fe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #0E345A;
+    margin-top: 400px;
+    padding: 50px;
+    line-height: 55px;
+}
+
+.fe h1{
+    font-family: 'Poppins', serif;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.fe h2{
+    font-size: 60px;
+}
+
+.feature .columnx h1, .columnx p{
+    font-family: 'Poppins', serif;
+    font-weight: 400;
+    width: 750px;
+    color: #0E345A;
+    margin-left: 100px;
+}
+
+.columnx{
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width: 50%;
+    padding: 40px;
+}
+
+.columnx h1{
+    font-size: 40px;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.columnx p{
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+    font-style: italic;
+}
+
+.columnx button{
+    margin: 80px 100px;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    padding: 20px;
+    color: #0E345A;
+    font-family: 'Poppins', serif;
+    font-size: 20px;
+    border: solid 3px #0E345A;
+    background-color: transparent;
+}
+
+.columnx button:hover{
+    color: #ffffff;
+    border: solid 3px #ffffff;
+    background-color: #0E345A;
+}
+
+.dark-mode .columnx button{
+    color: #ffffff;
+    border: solid 3px #ffffff;
+    background-color: transparent;
+}
+
+.dark-mode .columnx button:hover {
+    color: #0E345A;
+    background-color: #ffffff;
+}
+
+.columny{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    border: solid #0E345A;
+    border-width: 20px;
+    margin-left: 1100px;
+    margin-right: 100px;
+    height: 800px;
+}
+
+.columny img{
+    padding: 30px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature{
+    margin-bottom: 300px;
+}
+
+.foot {
+    padding: 100px 150px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: #0E345A;
+    font-family: 'Poppins', serif;
+    font-size: 18px;
+    line-height: 35px;
+    font-weight: 280;
+}
+
+.foot #vv{
+    padding: 0 50px;
+}
+
+.foot #vv p1{
+    font-weight: bolder;
+}
+
+.foot .col1 p{
+    font-weight: 150;
+}
+
+.foot .col4 .btn .btn1{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px;
+    color: #ffffff;
+    font-family: 'Poppins', serif;
+    font-size: 15px;
+    border: solid 2px #ffffff;
+    background-color: transparent;
+    width: 250px;
+    
+} 
+
+.foot .col4 .btn .btn1:hover{
+    background-color: #ffffff;
+    color: #0E345A;
+}
+
+.foot .col4 .btn .btn2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    color: #0E345A;
+    font-family: 'Poppins', serif;
+    font-size: 15px;
+    border: solid 2px #ffffff;
+    background-color: #ffffff;
+    width: 250px;
+} 
+
+.ff{
+    display: flex;
+    width: 700px;
+    padding: 20px 40px;
+}
+    
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 30px; /* Place the button at the bottom of the page */
+    right: 90px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #0E345A; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 20px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 20px; /* Increase font size */
+    font-weight: 400;
+}
+  
+#myBtn:hover {
+    background-color: #55555582; /* Add a dark-grey background on hover */
+}
+

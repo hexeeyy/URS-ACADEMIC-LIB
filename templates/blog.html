@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Blog</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="icon" href="/favicon_io/favicon.ico">
+        <link rel="stylesheet" href="/static/profile_design.css">
+        <link rel="stylesheet" href="/static/design.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <header>
+            <div class="nav-container">
+                <nav class="navbar">
+                    <div class="logo">
+                        <a href="" class="logo1">URSM</a>
+                        <a href="" class="logo2">ACADEMIC PAPERS</a>
+                    </div>
+                    <div class="navbar-item">
+                        <a href="index.html" id="nn">Home</a>
+                        <a href="library.html" id="nn">Library</a>
+                        <a href="" id="nn">Contact</a>
+                        <a href="" id="nn">Blog</a>
+                    </div>
+                    <div class="icons">
+                        <a href="" class="fa-solid fa-bell" id="hh"></a>
+                        <a href="{{ url_for('register') }}" class="fa-solid fa-circle-user" id="hh"></a>
+                    </div>
+                    <div class="toggle_btn" onclick="toggleMenu()">
+                        <i class="fas fa-bars" id="barsIcon"></i>
+                    </div>
+                    <input class="dark-light" type="checkbox" id="dark-light" name="dark-light" />
+                    <label for="dark-light"></label>
+                </nav>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="#">Home</a>
+                    <a href="#">Library</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Blog</a>
+                </div>
+            </div>
+        </header>
+        <div id="site-root">
+            <div class="blog-section">
+                <!-- This is where the dynamic blog posts will be inserted -->
+                <!-- You can use server-side templating to render posts dynamically -->
+                <!-- For this example, assume we have a template engine like Jinja2 -->
+                {% for post in posts %}
+                <div class="blog-post">
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.content }}</p>
+                    <p>Author: {{ post.author }}</p>
+                    <p>Date: {{ post.date }}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <footer class="foot">
+                <div class="col1" id="vv">
+                    <p1>URSM.Academic Papers</p1><br><br>
+                    <p>Sumulong Street, San Juan, Morong, 1960 Rizal, Philippines</p>
+                    <p>University of Rizal System</p>
+                    <p>Morong Campus</p>
+                    <p>College of Engineering</p>
+                </div>
+                <div class="col2" id="vv">
+                    <p1>Read</p1><br><br>
+                    <p>FAQ</p>
+                    <p>Readings and Updates</p>
+                    <p>Terms and Policy</p>
+                    <p>Authors Consent</p>
+                </div>
+                <div class="col3" id="vv">
+                    <p1>Socials</p1><br><br>
+                    <p>Facebook</p>
+                    <p>Instagram</p>
+                    <p>Twitter</p>
+                    <p>Pinterest</p>
+                </div>
+                <div class="col4" id="vv">
+                    <p1>Be first to know</p1><br><br>
+                    <p>Sign up for our newsletter!</p>
+                    <div class="btn">
+                        <button class="btn1">Enter your email here*</button>
+                        <button class="btn2">Subscribe</button>
+                    </div>
+                    <p>Thanks for submitting!</p>
+                </div>
+                <div class="ff">
+                    <p> © 2024 by URSM.Academic Paper. Powered and Secured by Hexilon</p>
+                </div>
+                <button onclick="topFunction()" id="myBtn" title="Go to top">GO TO TOP</button>
+            </footer>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="/static/script.js"></script>
+    </body>
+</html>
+
+
